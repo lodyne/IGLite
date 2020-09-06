@@ -5,6 +5,24 @@ from django.shortcuts import render
 def home(request):
     return render(request,'app1/home.html')
 
+def post_list(request):
+    return render(request, 'app1/post_list.html')
+
+def upload_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('post-list')
+    else:
+        form=PostForm()
+        
+    context={
+        'form':form
+    }
+    
+    return render(request, 'app1/upload_post.html')
+
 def search(request):
     return render(request,'app1/search.html')
 
