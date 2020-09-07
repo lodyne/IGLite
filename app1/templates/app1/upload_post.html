@@ -1,3 +1,8 @@
 {% extends 'app1/base.html' %} {% block content %}
 <h1>Upload Post</h1>
+<form method="post" enctype="multipart/form-data">
+	{% csrf_token %} {{ form.as_p }}
+	<input type="file" name="document" />
+	<button type="submit">Post</button>
+</form>
 {% endblock content %}

@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .forms import PostForm
+from .models import Post
 
 # Create your views here.
 
@@ -6,7 +8,10 @@ def home(request):
     return render(request,'app1/home.html')
 
 def post_list(request):
-    return render(request, 'app1/post_list.html')
+    context = {
+        'posts':Post.objects.all()
+    }
+    return render(request, 'app1/post_list.html',context)
 
 def upload_post(request):
     if request.method == 'POST':
