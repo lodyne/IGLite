@@ -18,7 +18,7 @@ def upload_post(request):
         form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('post-list')
+            return redirect('app1-post_list')
     else:
         form=PostForm()
         
@@ -26,7 +26,7 @@ def upload_post(request):
         'form':form
     }
     
-    return render(request, 'app1/upload_post.html')
+    return render(request, 'app1/upload_post.html',context)
 
 def search(request):
     return render(request,'app1/search.html')

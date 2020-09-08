@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\lodyne\\envs\\iglite\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\lodyne\\envs\\iglite\\Scripts\\python.exe",
+    "python.formatting.provider": "black"
 }
