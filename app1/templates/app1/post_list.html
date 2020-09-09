@@ -1,5 +1,14 @@
 {% extends 'app1/base.html' %} {% block content %}
 <h1>Posts</h1>
+
+<div class="card" style="width: 18rem">
+	<img src="{{post.posts}}" class="card-img-top" alt="..." />
+	<div class="card-body">
+		<p class="card-text">{{post.caption}}</p>
+	</div>
+</div>
+
+{% comment %}
 <table class="table">
 	<thead>
 		<tr>
@@ -18,4 +27,4 @@
 		{% endfor %}
 	</tbody>
 </table>
-{% endblock content %}
+{% endcomment %} {% endblock content %}
