@@ -1,4 +1,4 @@
-{% extends 'app1/base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'insta/base.html' %} {% load crispy_forms_tags %} {% block content %}
 <h1>Upload Post</h1>
 <form method="post" enctype="multipart/form-data">
 	{% csrf_token %} {{form | crispy }}
