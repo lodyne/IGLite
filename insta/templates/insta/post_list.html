@@ -2,11 +2,12 @@
 <h1>Posts</h1>
 
 {% for post in posts %}
-
-<div class="card" style="width: 18rem">
-	<img src="{{post.posts.url}}" class="card-img-top" alt="..." />
-	<div class="card-body">
-		<p class="card-text">{{post.caption}}</p>
+<div class="container d-flex justify-content-center">
+	<div class="card" style="width: 18rem">
+		<img src="{{post.posts.url}}" class="card-img-top" alt="..." />
+		<div class="card-body">
+			<p class="card-text">{{post.caption}}</p>
+		</div>
 	</div>
 </div>
 {% endfor %} {% endblock content %}

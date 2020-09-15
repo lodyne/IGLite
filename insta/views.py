@@ -5,7 +5,10 @@ from .models import Post
 # Create your views here.
 
 def home(request):
-    return render(request,'insta/home.html')
+    context = {
+        'posts':Post.objects.all()
+    }
+    return render(request,'insta/home.html',context)
 
 def post_list(request):
     context = {
@@ -18,7 +21,8 @@ def upload_post(request):
         form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('insta-post_list')
+            # return redirect('insta-post_list')
+            return redirect('insta-home')
     else:
         form=PostForm()
         
