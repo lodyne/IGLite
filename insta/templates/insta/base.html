@@ -107,14 +107,15 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="d-flex justify-content-end">
+			<div class="d-flex justify-content-end mt-2">
 				<a
 					href="{% url 'insta-upload_post' %}"
 					class="btn btn-primary btn-sm active"
 					role="button"
 					aria-pressed="true"
-					>Post</a
 				>
+					<i class="fa fa-plus" aria-hidden="true"></i>
+				</a>
 			</div>
 
 			{% block content %} {% endblock content %}
