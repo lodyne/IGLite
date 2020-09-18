@@ -4,12 +4,20 @@
 		<form class="form" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom text-center mb-4">Upload Post</legend>
+				<legend class="border-bottom text-center mb-4">IGLite</legend>
 				{{form | crispy}}
 			</fieldset>
-
-			<button type="submit" class="btn btn-primary">Post</button>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Sign Up</button>
+			</div>
 		</form>
+
+		<div class="form-group">
+			<small id="helpId" class="text-muted"
+				>Already have an account?
+				<a class="ml-2" href="">Sign in</a>
+			</small>
+		</div>
 	</div>
 </div>
 {% endblock content %}
