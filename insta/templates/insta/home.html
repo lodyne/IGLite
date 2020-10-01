@@ -1,7 +1,4 @@
-{% extends 'insta/base.html' %} {% block content %}
-<h1>Home Page</h1>
-
-{% for post in posts %}
+{% extends 'insta/base.html' %} {% block content %} {% block title %} Home Page {% endblock title %} {% for post in posts %}
 <div class="container d-flex justify-content-center mb-5">
     {% comment %}
     <div class="col-md-4"> {% endcomment %}
