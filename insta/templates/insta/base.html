@@ -106,21 +106,19 @@
 							</a>
 
 							{% if user.is_authenticated %}
-							    <div class="dropdown-menu dropdown-menu-right">
-								    <a class="dropdown-item" href="{% url 'insta-profile' %}"
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="{% url 'insta-profile' %}"
 									>Profile</a
-								    >
-								   <div class="dropdown-divider"></div>
-								   <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-							    </div>
+								>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+							</div>
 							{% else %}
-							    <div class="dropdown-menu dropdown-menu-right">
-								    <a class="dropdown-item" href="{% url 'register' %}"
-									>Sign Up</a
-								    >
-								   <div class="dropdown-divider"></div>
-								   <a class="dropdown-item" href="{% url 'login' %}">Login</a>
-							    </div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="{% url 'register' %}">Sign Up</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{% url 'login' %}">Login</a>
+							</div>
 							{% endif %}
 						</li>
 					</ul>
