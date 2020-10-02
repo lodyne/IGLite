@@ -1,21 +1,26 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from .forms import PostForm
 from .models import Post
 
 # Create your views here.
 
+@login_required
 def home(request):
     context = {
         'posts':Post.objects.all()
     }
     return render(request,'insta/home.html',context)
 
+
+@login_required
 def post_list(request):
     context = {
         'posts':Post.objects.all()
     }
     return render(request, 'insta/post_list.html',context)
 
+@login_required
 def upload_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST,request.FILES)
@@ -35,11 +40,14 @@ def upload_post(request):
 def search(request):
     return render(request,'insta/search.html')
 
+@login_required
 def notification(request):
     return render(request,'insta/notification.html')
 
+@login_required
 def message(request):
     return render(request,'insta/message.html')
 
+@login_required
 def profile(request):
     return render(request,'insta/profile.html')
