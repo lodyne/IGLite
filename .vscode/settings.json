@@ -1,5 +1,24 @@
 {
     "python.pythonPath": "C:\\Users\\lodyne\\envs\\iglite\\Scripts\\python.exe",
     "python.formatting.provider": "autopep8",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "**/templates/*.html": "django-html",
+        "**/templates/*": "django-txt"
+    },
+    "beautify.language": {
+        "html": [
+            "htm",
+            "html",
+            "django-html"
+        ]
+
+    },
+
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+
+    "emmet.triggerExpansionOnTab": true,
+    "files.autoSave": "off",
 }
