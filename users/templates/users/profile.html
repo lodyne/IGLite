@@ -1,0 +1,23 @@
+{% extends 'insta/base.html' %} 
+{% load static %}
+
+{% block content %}
+<h1>Profile Page</h1>
+<div class="media">
+
+<div class="media">
+    
+    {% if user.profile.image.url %}    
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url}}">
+
+    {% else %}
+        <img class="rounded-circle account-img" src="{% static 'media\default.JPG' %}">
+    {% endif %}
+    <div class="media-body">
+        <h2 class="account-heading">{{ user.username}}</h2>
+        <p class="text-secondary">{{ user.email}}</p>
+    </div>
+</div>
+
+</div>
+{% endblock content %}    
