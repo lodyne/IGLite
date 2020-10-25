@@ -21,4 +21,21 @@
 
     "emmet.triggerExpansionOnTab": true,
     "files.autoSave": "off",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#46a1e7",
+        "activityBar.activeBorder": "#fbe3f1",
+        "activityBar.background": "#46a1e7",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#fbe3f1",
+        "activityBarBadge.foreground": "#15202b",
+        "statusBar.background": "#1d89dd",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#46a1e7",
+        "titleBar.activeBackground": "#1d89dd",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#1d89dd99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#1d89dd",
 }

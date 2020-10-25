@@ -1,53 +1,55 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
 from .models import Post
 
 # Create your views here.
 
+
 @login_required
 def home(request):
     context = {
-        'posts':Post.objects.all()
+        'posts': Post.objects.all()
     }
-    return render(request,'insta/home.html',context)
+    return render(request, 'insta/home.html', context)
 
 
 @login_required
 def post_list(request):
     context = {
-        'posts':Post.objects.all()
+        'posts': Post.objects.all()
     }
-    return render(request, 'insta/post_list.html',context)
+    return render(request, 'insta/post_list.html', context)
+
 
 @login_required
 def upload_post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST,request.FILES)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             # return redirect('insta-post_list')
             return redirect('insta-home')
     else:
-        form=PostForm()
-        
-    context={
-        'form':form
-    }
-    
-    return render(request, 'insta/upload_post.html',context)
+        form = PostForm()
 
+    context = {
+        'form': form
+    }
+
+    return render(request, 'insta/upload_post.html', context)
+
+
+@login_required
 def search(request):
-    return render(request,'insta/search.html')
+    return render(request, 'insta/search.html')
+
 
 @login_required
 def notification(request):
-    return render(request,'insta/notification.html')
+    return render(request, 'insta/notification.html')
+
 
 @login_required
 def message(request):
-    return render(request,'insta/message.html')
-
-@login_required
-def profile(request):
-    return render(request,'insta/profile.html')
+    return render(request, 'insta/message.html')
