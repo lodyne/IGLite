@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import(
+    LoginRequiredMixin,
+    UserPassesTestMixin
+)
 from django.contrib.auth.decorators import login_required
 from django.views.generic import(
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    UpdateView,
+    DeleteView
 )
 from .forms import PostForm
 from .models import Post
@@ -81,7 +86,7 @@ def upload_post(request):
         if form.is_valid():
             '''commit=False tells Django that
                 "Don't send this to database yet, 
-                I have more things I want to do with it.
+                I have more things I want to do with it".
             '''
             obj = form.save(commit=False)
             obj.instagrammer = request.user
@@ -101,8 +106,8 @@ def upload_post(request):
 # Class-based view to create post
 
 ''' By convention the template made will be used by create and 
-    update views, its named in form of <name_of_model>_form.html.
-    i.e post_form.html
+    update views,its named as <nam_of_app>/<name_of_model>_form.html.
+    i.e insta/post_form.html
 '''
 
 ''' We shouldnt be able to create a post unless we are logged in
@@ -130,6 +135,58 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.instagrammer = self.request.user
         return super().form_valid(form)
+
+
+# Class-based view to update post
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    ''' Yo have to use UserPassesTestMixin so that to check if the 
+        user who create the post (instagrammer in our case) is the 
+        one who update it because we want people who wrote the post
+        is the one responsible to edit it.
+    '''
+    model = Post
+    fields = ['posts', 'caption']
+
+    def form_valid(self, form):
+        form.instance.instagrammer = self.request.user
+        return super().form_valid(form)
+
+    ''' The method below is the one which the UserPassesTestMixin will
+        run in order to see if the user passes a certain test condtion.
+    '''
+
+    def test_func(self):
+        ''' get_object() function will helps to get get the exact post
+            user is currently trying to update.
+        '''
+        post = self.get_object()
+        ''' To get the currently logged in user is the one who created
+            the post, use the below condition:-
+        '''
+        if self.request.user == post.instagrammer:
+            return True
+        return False
+
+
+# Class-based view to delete post
+''' By convention the template made used by which will be used by delete view, 
+    its named in form of <name_of_app>/<name_of_model>_confirm_delete.html.
+    i.e insta/post_confirm_delete.html
+
+'''
+
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    # to redirect to the preferred route
+    # success_url = '/'
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.instagrammer:
+            return True
+        return False
 
 
 @login_required
