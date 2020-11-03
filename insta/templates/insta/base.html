@@ -32,7 +32,7 @@
 
 	<body>
 		<div class="container-fluid">
-			{% include "insta/navbar.html" %}
+			{% include "insta/navbar.html" %} {% if user.is_authenticated %}
 			<div class="d-flex justify-content-end mt-2">
 				<a
 					href="{% url 'insta-upload_post' %}"
@@ -43,8 +43,7 @@
 					<i class="fa fa-plus" aria-hidden="true"></i>
 				</a>
 			</div>
-
-			{% if messages %} {% for message in messages %}
+			{% endif %} {% if messages %} {% for message in messages %}
 			<div class="d-flex justify-content-center  alert alert-{{message.tags}}">
 				<p>{{message}}</p>
 			</div>
