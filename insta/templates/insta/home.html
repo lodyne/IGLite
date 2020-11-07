@@ -7,10 +7,10 @@
     <div class="card" style="width: 18rem">
         <div class="card-header" >
             <img class="rounded-circle my-1 ml-2" style= "height: 45px;width: 45px;" src="{{ post.instagrammer.profile.image.url }}">
-            <strong><a class="ml-4" href="{% url 'profile' %}">{{ post.instagrammer }}</a></strong>
+            <strong><a class="ml-4" href="{% url 'user-posts' post.instagrammer.username %}">{{ post.instagrammer }}</a></strong>
             <a 
                 data-toggle="tooltip"
-				data-placement="top"
+				data-placement="top" 
 				title="update post"
                 href="{% url 'post-detail' post.id %}" 
                 style="float: right;margin-top:15px">

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from PIL import Image
 
 # Create your models here.
 
@@ -18,6 +19,16 @@ class Post(models.Model):
         created i.e. finds the url of the model object that returns the path
         to any specific instance (find the location to a specific post).
     '''
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.posts.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.posts.path)
 
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={"pk": self.pk})

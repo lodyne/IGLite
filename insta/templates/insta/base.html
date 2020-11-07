@@ -31,24 +31,16 @@
 	</head>
 
 	<body>
-		<div class="container-fluid">
-			{% include "insta/navbar.html" %} {% if user.is_authenticated %}
-			<div class="d-flex justify-content-end mt-2">
-				<a
-					href="{% url 'insta-upload_post' %}"
-					class="btn btn-primary btn-sm active"
-					role="button"
-					aria-pressed="true"
-				>
-					<i class="fa fa-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			{% endif %} {% if messages %} {% for message in messages %}
-			<div class="d-flex justify-content-center  alert alert-{{message.tags}}">
+		<div class="container">{% include "insta/navbar.html" %}
+		
+			{% if messages %} {% for message in messages %}
+			< class="d-flex justify-content-center  alert alert-{{message.tags}}">
 				<p>{{message}}</p>
-			</div>
+			</>
 
-			{% endfor %} {% endif %} {% block content %} {% endblock content %}
+			{% endfor %} {% endif %}
+		
+		{% block content %} {% endblock content%}
 		</div>
 
 		<!-- Optional JavaScript -->

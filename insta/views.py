@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import(
+    render,
+    redirect,
+    get_object_or_404
+)
+from django.contrib.auth.models import User
 from django.contrib.auth.mixins import(
     LoginRequiredMixin,
     UserPassesTestMixin
@@ -27,7 +32,7 @@ def home(request):
 # Class-based view to list/retrieve post
 
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
 
     ''' Create a variable called model which tells the ListView
         what model to query in order to create the list.
@@ -65,7 +70,8 @@ def post_list(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'insta/post_list.html', context)
+    # return render(request, 'insta/post_list.html', context)
+    return render(request, 'insta/user_posts.html', context)
 
 
 # Class-based view to detail a single post
@@ -187,6 +193,25 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.instagrammer:
             return True
         return False
+
+
+''' The view below will help to display the post from 
+    the particular user when you click the user link
+'''
+
+
+class UserPostListView(ListView):
+    model = Post
+    template_name = 'insta/user_posts.html'
+    context_object_name = 'posts'
+
+    ''' The method below will be responsible to filter 
+        only the post by that user
+    '''
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(instagrammer=user).order_by('-posts')
 
 
 @login_required
