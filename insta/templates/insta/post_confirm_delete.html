@@ -5,7 +5,9 @@
 			{% csrf_token %}
 			<fieldset class="form-group">
 				<legend class="border-bottom text-center mb-4">Delete Post</legend>
-				<h5>Are sure you want to delete this post?</h5>
+				<div class="alert alert-primary" role="alert">
+					<strong>Are sure you want to delete this post?</strong>
+				</div>
 			</fieldset>
 
 			<button type="submit" class="btn btn-outline-danger">Yes,Delete</button>

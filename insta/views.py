@@ -77,10 +77,10 @@ def post_list(request):
 # Class-based view to detail a single post
 class PostDetailView(DetailView):
     ''' If we stick to the convention (create a template with 
-        the naming convention that our view will be looking i.e 
-        in form of <app>/<model>_<viewtype>.html and use the variable
-        name of *object list* inside the template in stead of *posts*), 
-        only one line is needed i.e the one below 
+        the naming convention) our view will be looking the template 
+        in form of <app>/<model>_<viewtype>.html i.e insta/post_detail.html
+        and use the variable name of *object list* inside the template 
+        in stead of *posts*. NB:- only one line is needed
     '''
     model = Post
 
@@ -112,7 +112,7 @@ def upload_post(request):
 # Class-based view to create post
 
 ''' By convention the template made will be used by create and 
-    update views,its named as <nam_of_app>/<name_of_model>_form.html.
+    update views,its named as <name_of_app>/<name_of_model>_form.html.
     i.e insta/post_form.html
 '''
 
