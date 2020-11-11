@@ -1,28 +1,34 @@
-{% extends 'insta/base.html' %}
-{% block content %}
-<h2>Home Page </h2>
-{% for post in posts%}
-<div class="container d-flex justify-content-center mb-5">
+{% extends 'insta/base.html' %} {% block content %} {% for post in posts%}
 
-    <div class="card" style="width: 18rem">
-        <div class="card-header" >
-            <img class="rounded-circle my-1 ml-2" style= "height: 45px;width: 45px;" src="{{ post.instagrammer.profile.image.url }}">
-            <strong><a class="ml-4" href="{% url 'user-posts' post.instagrammer.username %}">{{ post.instagrammer }}</a></strong>
-            <a 
-                data-toggle="tooltip"
-				data-placement="top" 
+<div class="container mb-5">
+	<div class="card">
+		<div class="card-header">
+			<img
+				class="rounded-circle my-1 ml-2"
+				style="height: 45px; width: 45px"
+				src="{{ post.instagrammer.profile.image.url }}"
+			/>
+			<strong
+				><a
+					class="ml-4"
+					href="{% url 'user-posts' post.instagrammer.username %}"
+					>{{ post.instagrammer }}</a
+				></strong
+			>
+			<a
+				data-toggle="tooltip"
+				data-placement="top"
 				title="update post"
-                href="{% url 'post-detail' post.id %}" 
-                style="float: right;margin-top:15px">
-                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            </a>
-        </div>
-        <img src="{{post.posts.url}}" class="card-img-top" alt="..." />
-        <div class="card-body">
-            <p class="card-text">{{post.caption}}</p>
-        </div>
-    </div>
+				href="{% url 'post-detail' post.id %}"
+				style="float: right; margin-top: 15px"
+			>
+				<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+			</a>
+		</div>
+		<img src="{{post.posts.url}}" class="card-img-top" alt="..." />
+		<div class="card-body">
+			<p class="card-text">{{post.caption}}</p>
+		</div>
+	</div>
 </div>
-
-{% endfor %} {% endblock content %} /div>
-</div>
+{% endfor %} {% endblock content %}
