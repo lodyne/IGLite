@@ -1,6 +1,8 @@
-{% extends 'insta/base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'insta/base.html' %} 
+{% load crispy_forms_tags %} 
+{% block content %}
 <div class="container d-flex justify-content-center">
-	<div class="col-md-4">
+	<div class="col-md-8">
 		<form class="form" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<fieldset class="form-group">
@@ -8,7 +10,7 @@
 				{{form | crispy}}
 			</fieldset>
 
-			<button type="submit" class="btn btn-primary">Post</button>
+			<button type="submit" class="btn btn-outline-primary">Post</button>
 		</form>
 	</div>
 </div>

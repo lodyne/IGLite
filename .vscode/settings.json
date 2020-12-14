@@ -1,41 +1,36 @@
 {
-    "python.pythonPath": "C:\\Users\\lodyne\\envs\\iglite\\Scripts\\python.exe",
-    "python.formatting.provider": "autopep8",
-    "editor.formatOnSave": true,
-    "files.associations": {
-        "**/templates/*.html": "django-html",
-        "**/templates/*": "django-txt"
-    },
-    "beautify.language": {
-        "html": [
-            "htm",
-            "html",
-            "django-html"
-        ]
+	"python.pythonPath": "C:\\Users\\lodyne\\envs\\iglite\\Scripts\\python.exe",
+	"python.formatting.provider": "autopep8",
+	"editor.formatOnSave": false,
+	"files.associations": {
+		"**/templates/*.html": "django-html",
+		"**/templates/*": "django-txt"
+	},
 
-    },
+	"emmet.includeLanguages": {
+		"django-html": "html"
+	},
 
-    "emmet.includeLanguages": {
-        "django-html": "html"
-    },
-
-    "emmet.triggerExpansionOnTab": true,
-    "files.autoSave": "off",
-    "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#568bf2",
-        "activityBar.activeBorder": "#b20e45",
-        "activityBar.background": "#568bf2",
-        "activityBar.foreground": "#15202b",
-        "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#b20e45",
-        "activityBarBadge.foreground": "#e7e7e7",
-        "statusBar.background": "#276aee",
-        "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#568bf2",
-        "titleBar.activeBackground": "#276aee",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#276aee99",
-        "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "#276aee",
+	"emmet.triggerExpansionOnTab": true,
+	"files.autoSave": "off",
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#568bf2",
+		"activityBar.activeBorder": "#b20e45",
+		"activityBar.background": "#568bf2",
+		"activityBar.foreground": "#15202b",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#b20e45",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"statusBar.background": "#276aee",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#568bf2",
+		"titleBar.activeBackground": "#276aee",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#276aee99",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#276aee",
+	"beautify.language": {
+		"html": ["htm", "html", "django-html"]
+	}
 }

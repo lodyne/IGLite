@@ -1,8 +1,8 @@
-{% extends 'insta/base.html' %} {% block content %}
+{% include 'users/profile.html' %}
 
 <div class="container">
 	{% for post in posts %}
-	<div class="row">
+	<div class="card-deck">
 		<div class="col-md-4 col-sm-6 mt-4">
 			<div class="card" style="width: 18rem">
 				<div class="card-header">
@@ -11,13 +11,12 @@
 						style="height: 45px; width: 45px"
 						src="{{ post.instagrammer.profile.image.url }}"
 					/>
-					<strong
-						><a
+					<strong>
+						<a
 							class="ml-4"
 							href="{% url 'user-posts' post.instagrammer.username %}"
-							>{{ post.instagrammer }}</a
-						></strong
-					>
+							>{{ post.instagrammer }}</a>
+					</strong>
 					<a
 						data-toggle="tooltip"
 						data-placement="top"
@@ -38,4 +37,5 @@
 		{% endfor %}
 	</div>
 </div>
-{% endblock content %}
+
+{% block override_this %} {% endblock override_this %}

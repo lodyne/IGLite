@@ -145,7 +145,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 # Class-based view to update post
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    ''' Yo have to use UserPassesTestMixin so that to check if the 
+    ''' You have to use UserPassesTestMixin so that to check if the 
         user who create the post (instagrammer in our case) is the 
         one who update it because we want people who wrote the post
         is the one responsible to edit it.
