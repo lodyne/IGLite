@@ -1,41 +1,31 @@
 {% include 'users/profile.html' %}
-
-<div class="container">
-	{% for post in posts %}
-	<div class="card-deck">
-		<div class="col-md-4 col-sm-6 mt-4">
-			<div class="card" style="width: 18rem">
-				<div class="card-header">
-					<img
-						class="rounded-circle my-1 ml-2"
-						style="height: 45px; width: 45px"
-						src="{{ post.instagrammer.profile.image.url }}"
-					/>
-					<strong>
-						<a
-							class="ml-4"
-							href="{% url 'user-posts' post.instagrammer.username %}"
-							>{{ post.instagrammer }}</a>
-					</strong>
-					<a
-						data-toggle="tooltip"
-						data-placement="top"
-						title="update post"
-						href="{% url 'post-detail' post.id %}"
-						style="float: right; margin-top: 15px"
-					>
-						<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-					</a>
-				</div>
-				<img src="{{post.posts.url}}" class="card-img-top" alt="..." />
-
-				<div class="card-body">
-					<p class="card-text">{{post.caption}}</p>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
-</div>
-
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100">
+                            {% comment %} <div class="card-header">
+                                <img
+                                    class="rounded-circle my-1 ml-2"
+                                    style="height: 45px; width: 45px"
+                                    src="{{ post.instagrammer.profile.image.url }}"
+                                />  
+                            </div>  {% endcomment %}
+                            
+                            <img 
+                                src="{{post.posts.url}}" 
+                                class="card-img-top" 
+                                style="width: auto; height: 250px; object-fit: scale-down" 
+                                alt="..." 
+                            />
+                            <div class="card-body">
+                                <p class="card-text">{{post.caption}}</p>
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
 {% block override_this %} {% endblock override_this %}
+
+

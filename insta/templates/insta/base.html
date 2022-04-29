@@ -21,7 +21,13 @@
 		<link rel="stylesheet" href="insta/navbar.css" />
 		{% endcomment %}
 
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
 		<!-- Bootstrap CSS -->
+        
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -32,21 +38,22 @@
 
 	<body>
 		<div class="container">
-			{% include "insta/navbar.html" %} {% if user.is_authenticated %}
-			<div class="d-flex justify-content-end mt-2">
-				<a
-					href="{% url 'insta-upload_post' %}"
-					class="btn btn-primary btn-sm active"
-					role="button"
-					data-toggle="tooltip"
-					data-placement="top"
-					title="New Post"
-					aria-pressed="true"
-				>
-					<i class="fa fa-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			{% endif %}
+			{% include "insta/navbar.html" %} 
+            {% comment %} {% if user.is_authenticated %}
+                <div class="d-flex justify-content-end mt-2">
+                    <a
+                        href="{% url 'insta-upload_post' %}"
+                        class="btn btn-primary btn-sm active"
+                        role="button"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="New Post"
+                        aria-pressed="true"
+                    >
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+			{% endif %} {% endcomment %}
 			{% block override_this %}
 				<div class="row mt-2">
 					<div class="col-md-8">
