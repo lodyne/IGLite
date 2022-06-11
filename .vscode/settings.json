@@ -12,7 +12,8 @@
 	},
 
 	"emmet.triggerExpansionOnTab": true,
-	"files.autoSave": "off",
+	"files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
 	"workbench.colorCustomizations": {
         "activityBar.activeBackground": "#568bf2",
         "activityBar.activeBorder": "#b20e45",

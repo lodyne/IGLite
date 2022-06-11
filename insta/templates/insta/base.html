@@ -53,27 +53,23 @@
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </a>
                 </div>
-			{% endif %} {% endcomment %}
+			    {% endif %} {% endcomment %}
 			{% block override_this %}
-				<div class="row mt-2">
-					<div class="col-md-8">
-						{% if messages %}
-							{% for message in messages %}
-								<div
-									class="d-flex justify-content-center  alert alert-{{message.tags}}"
-								>
-									<p>{{message}}</p>
-								</div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div
+                            class="d-flex justify-content-center  alert alert-{{message.tags}}"
+                        >
+                            <p>{{message}}</p>
+                        </div>
 
-							{% endfor %}
-						{% endif %} 
-						{% block content %} {% endblock content%}
-					</div>
+                    {% endfor %} 
+                {% endif %} 
+                {% block content %} {% endblock content%}
 
-					{% block sidepanel %} 
-						{% include 'insta/sidepanel.html' %}
-					{% endblock %}
-				</div>
+                {% block sidepanel %} 
+                    {% include 'insta/sidepanel.html' %}
+                {% endblock %}
 			{% endblock override_this %}
 		</div>
 
